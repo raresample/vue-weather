@@ -35,6 +35,8 @@ export default {
   },
   data() {
     return {
+      // Add your OpenWeather API Key here
+      // https://home.openweathermap.org/api_keys
       api_key: 'f41ec13a2657bc185cdffa04442de35f',
       url_base: 'https://api.openweathermap.org/data/2.5/',
       query: '',
