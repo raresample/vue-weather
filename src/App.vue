@@ -15,7 +15,7 @@
       <div class="weather-wrap" v-if="typeof weather.main != 'undefined' ">
         <div class="location-box">
           <div class="location">{{ weather.name }}</div>
-          <div class="location gran" v-show="query == 'madison' ">I love you Gran!</div>
+          <div id="gran" class="location" v-show="query == 'madison' ">I love you Gran!</div>
           <div class="date">{{ dateBuilder() }}</div>
         </div>
 
@@ -137,8 +137,9 @@ main {
   text-shadow: 1px 3px rgba(0, 0, 0, 0.25);
 }
 
-.gran {
+#gran {
   font-style: italic;
+  color: lime;
 }
 
 .location-box .date {
