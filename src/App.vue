@@ -15,7 +15,7 @@
       <div class="weather-wrap" v-if="typeof weather.main != 'undefined' ">
         <div class="location-box">
           <div class="location">{{ weather.name }}</div>
-          <div id="gran" class="location" v-show="query == 'madison' ">I love you Gran!</div>
+          <div id="gran" class="location" v-show="madison">I love you Gran!</div>
           <div class="date">{{ dateBuilder() }}</div>
         </div>
 
@@ -41,7 +41,8 @@ export default {
       api_key: 'f41ec13a2657bc185cdffa04442de35f',
       url_base: 'https://api.openweathermap.org/data/2.5/',
       query: '',
-      weather: {}
+      weather: {},
+      madison: false,
     }
   },
   methods: {
@@ -51,6 +52,12 @@ export default {
           .then(res => {
             return res.json();
           }).then(this.setResults);
+      }
+      // Toggle easter egg
+      if (this.query.toLowerCase() == 'madison') {
+        this.madison = true;
+      } else {
+        this.madison = false;
       }
     },
     setResults(results) {
