@@ -16,6 +16,7 @@
         <div class="location-box">
           <div class="location">{{ weather.name }}</div>
           <div id="gran" class="location" v-show="madison">I love you Gran!</div>
+          <div id="orange" class="location" v-show="orange">GO HORNETS</div>
           <div class="date">{{ dateBuilder() }}</div>
         </div>
 
@@ -43,6 +44,7 @@ export default {
       query: '',
       weather: {},
       madison: false,
+      orange: false
     }
   },
   methods: {
@@ -58,6 +60,12 @@ export default {
         this.madison = true;
       } else {
         this.madison = false;
+      }
+      // Toggle easter egg
+      if (this.query.toLowerCase() == 'orange') {
+        this.orange = true;
+      } else {
+        this.orange = false;
       }
     },
     setResults(results) {
@@ -148,6 +156,11 @@ main {
 #gran {
   font-style: italic;
   color: lime;
+}
+#orange {
+  font-style: italic;
+  color: blue;
+  background: orange;
 }
 
 .location-box .date {
